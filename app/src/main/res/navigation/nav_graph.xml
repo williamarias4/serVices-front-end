@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.fragments.HomeFragment"
+        android:label="@string/home_fragment_title"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/newServiceFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.fragments.NewServiceFragment"
+        android:label="@string/new_service_fragment_title"
+        tools:layout="@layout/fragment_new_service" />
+
+    <fragment
+        android:id="@+id/myServicesFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.fragments.MyServicesFragment"
+        android:label="@string/my_services_fragment_title"
+        tools:layout="@layout/fragment_my_services" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.fragments.ProfileFragment"
+        android:label="@string/profile_fragment_title"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

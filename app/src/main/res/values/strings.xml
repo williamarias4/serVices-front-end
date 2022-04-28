@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Services App</string>
+    <string name="app_name">SerVices</string>
+
+    <!-- Fragments label titles -->
+    <string name="home_fragment_title">SerVices</string>
+    <string name="new_service_fragment_title">Nuevo servicio</string>
+    <string name="my_services_fragment_title">Mis servicios</string>
+    <string name="profile_fragment_title">Mi perfil</string>
+
+    <!-- Bottom navigation strings -->
+    <string name="menu_home">Inicio</string>
+    <string name="menu_new_service">Nuevo servicio</string>
+    <string name="menu_my_services">Mis servicios</string>
+    <string name="menu_profile">Mi perfil</string>
 </resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/outline_home_24"
+        android:title="@string/menu_home" />
+
+    <item
+        android:id="@+id/newServiceFragment"
+        android:icon="@drawable/outline_add_circle_outline_24"
+        android:title="@string/menu_new_service" />
+
+    <item
+        android:id="@+id/myServicesFragment"
+        android:icon="@drawable/outline_handyman_24"
+        android:title="@string/menu_my_services" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/outline_account_circle_24"
+        android:title="@string/menu_profile" />
+</menu>
