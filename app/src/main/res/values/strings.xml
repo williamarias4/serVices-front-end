@@ -1,4 +1,5 @@
 <resources>
+    <!-- General string definitions -->
     <string name="app_name">SerVices</string>
 
     <!-- Fragments label titles -->
@@ -12,6 +13,15 @@
     <string name="menu_new_service">Nuevo servicio</string>
     <string name="menu_my_services">Mis servicios</string>
     <string name="menu_profile">Mi perfil</string>
+
+    <!-- Login activity strings -->
+    <string name="login_activity_image_description">Logo de la aplicación</string>
+    <string name="login_activity_heading">Iniciar sesión</string>
+    <string name="login_activity_username_hint">Nombre de usuario</string>
+    <string name="login_activity_password_hint">Contraseña</string>
+    <string name="login_activity_login_btn">Acceder</string>
+    <string name="login_activity_signup_text">Registrarse</string>
+    <string name="login_activity_recover_text">Recuperar contraseña</string>
 
     <!-- Profile fragment strings -->
     <string name="profile_fragment_btn_save">Guardar</string>
