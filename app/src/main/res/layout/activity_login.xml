@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="cr.una.eif409.frontend.servicesapp.LoginActivity" />
+            type="cr.una.eif409.frontend.servicesapp.view.LoginActivity" />
     </data>
 
     <ScrollView
@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".LoginActivity">
+            tools:context=".view.LoginActivity">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

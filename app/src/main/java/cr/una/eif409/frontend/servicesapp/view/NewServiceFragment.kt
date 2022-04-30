@@ -1,4 +1,4 @@
-package cr.una.eif409.frontend.servicesapp.fragments
+package cr.una.eif409.frontend.servicesapp.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

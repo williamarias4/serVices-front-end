@@ -1,4 +1,4 @@
-package cr.una.eif409.frontend.servicesapp
+package cr.una.eif409.frontend.servicesapp.view
 
 import android.content.Intent
 import android.os.Bundle
