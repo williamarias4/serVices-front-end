@@ -17,7 +17,7 @@
     <!-- Login activity strings -->
     <string name="login_activity_image_description">Logo de la aplicación</string>
     <string name="login_activity_heading">Iniciar sesión</string>
-    <string name="login_activity_username_hint">Nombre de usuario</string>
+    <string name="login_activity_email_hint">Correo electrónico</string>
     <string name="login_activity_password_hint">Contraseña</string>
     <string name="login_activity_login_btn">Acceder</string>
     <string name="login_activity_signup_text">Registrarse</string>
