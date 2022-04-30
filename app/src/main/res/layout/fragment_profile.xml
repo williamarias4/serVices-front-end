@@ -20,7 +20,7 @@
 
     <EditText
         android:id="@+id/profile_fragment_et_name"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/profile_fragment_name_hint"
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/profile_fragment_et_email"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/profile_fragment_email_hint"
@@ -52,7 +52,7 @@
 
     <EditText
         android:id="@+id/profile_fragment_et_phone_number"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/profile_fragment_phone_hint"
@@ -68,7 +68,7 @@
 
     <EditText
         android:id="@+id/profile_fragment_et_password_current"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/profile_fragment_password_current_hint"
@@ -84,7 +84,7 @@
 
     <EditText
         android:id="@+id/profile_fragment_et_password_new"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/profile_fragment_password_new_hint"
@@ -100,7 +100,7 @@
 
     <EditText
         android:id="@+id/profile_fragment_et_password_confirm"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/profile_fragment_password_confirm_hint"
