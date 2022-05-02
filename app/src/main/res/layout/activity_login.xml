@@ -7,7 +7,7 @@
 
         <variable
             name="LoginViewModel"
-            type="cr.una.eif409.frontend.servicesapp.viewmodel.LoginViewModel" />
+            type="cr.una.eif409.frontend.servicesapp.ui.viewmodel.LoginViewModel" />
     </data>
 
     <ScrollView
@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".view.LoginActivity">
+            tools:context=".ui.view.LoginActivity">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/login_activity_toolbar"
@@ -80,10 +80,10 @@
                         android:layout_marginTop="16dp"
                         android:ems="10"
                         android:hint="@string/login_activity_email_hint"
-                        android:text="@={LoginViewModel.email}"
                         android:importantForAutofill="no"
                         android:inputType="textWebEmailAddress"
                         android:minHeight="48dp"
+                        android:text="@={LoginViewModel.username}"
                         android:textColorHint="#757575"
                         app:layout_constraintBottom_toTopOf="@+id/login_activity_et_password"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -97,10 +97,10 @@
                         android:layout_marginTop="16dp"
                         android:ems="10"
                         android:hint="@string/login_activity_password_hint"
-                        android:text="@={LoginViewModel.password}"
                         android:importantForAutofill="no"
                         android:inputType="textPassword"
                         android:minHeight="48dp"
+                        android:text="@={LoginViewModel.password}"
                         app:layout_constraintBottom_toTopOf="@+id/login_activity_btn_signin"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -111,8 +111,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/login_activity_login_btn"
                         android:onClick="@{() -> LoginViewModel.onLoginClicked()}"
+                        android:text="@string/login_activity_login_btn"
                         app:layout_constraintBottom_toTopOf="@+id/login_activity_tv_signup"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -127,6 +127,7 @@
                         android:background="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
+                        android:onClick="@{() -> LoginViewModel.onSignupClicked()}"
                         android:text="@string/login_activity_signup_text"
                         android:textColor="@color/primary_dark"
                         app:layout_constraintBottom_toTopOf="@+id/login_activity_tv_recover_password"

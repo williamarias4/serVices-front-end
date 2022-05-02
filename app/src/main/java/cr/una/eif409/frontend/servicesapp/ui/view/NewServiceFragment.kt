@@ -1,4 +1,4 @@
-package cr.una.eif409.frontend.servicesapp.view
+package cr.una.eif409.frontend.servicesapp.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import cr.una.eif409.frontend.servicesapp.R
 
-class HomeFragment : Fragment() {
+class NewServiceFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_new_service, container, false)
     }
 }

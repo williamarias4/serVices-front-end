@@ -1,4 +1,4 @@
-package cr.una.eif409.frontend.servicesapp.view
+package cr.una.eif409.frontend.servicesapp.ui.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,14 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import cr.una.eif409.frontend.servicesapp.R
+import cr.una.eif409.frontend.servicesapp.core.SharedApp
 import cr.una.eif409.frontend.servicesapp.databinding.ActivityLoginBinding
-import cr.una.eif409.frontend.servicesapp.viewmodel.LoginViewModel
+import cr.una.eif409.frontend.servicesapp.ui.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (SharedApp.preferences.username.isNotBlank()) {
+            navigateToMainActivity()
+        }
+
         super.onCreate(savedInstanceState)
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
@@ -27,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         // Observe for changes in the input fields
         loginViewModel.userLogin.observe(this) {
-            if (it.email.isNullOrBlank()) {
+            if (it.username.isNullOrBlank()) {
                 binding.loginActivityEtEmail.error = "Correo electrónico requerido"
                 binding.loginActivityEtEmail.requestFocus()
             } else if (it.password.isNullOrEmpty()) {

@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="cr.una.eif409.frontend.servicesapp.view.HomeFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.ui.view.HomeFragment"
         android:label="@string/home_fragment_title"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/newServiceFragment"
-        android:name="cr.una.eif409.frontend.servicesapp.view.NewServiceFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.ui.view.NewServiceFragment"
         android:label="@string/new_service_fragment_title"
         tools:layout="@layout/fragment_new_service" />
 
     <fragment
         android:id="@+id/myServicesFragment"
-        android:name="cr.una.eif409.frontend.servicesapp.view.MyServicesFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.ui.view.MyServicesFragment"
         android:label="@string/my_services_fragment_title"
         tools:layout="@layout/fragment_my_services" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="cr.una.eif409.frontend.servicesapp.view.ProfileFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.ui.view.ProfileFragment"
         android:label="@string/profile_fragment_title"
         tools:layout="@layout/fragment_profile" />
 </navigation>
