@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
 
         view.findViewById<Button>(R.id.button_logout).setOnClickListener {
             SharedApp.preferences.username = ""
-            val intent = Intent(context, LoginActivity::class.java)
+            val intent = Intent(context, AuthActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }
