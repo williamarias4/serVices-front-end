@@ -9,7 +9,7 @@ import cr.una.eif409.frontend.servicesapp.data.repository.AuthenticationReposito
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
-    // Repository for making the requests
+    // Repository for retrieving data
     private val authenticationRepository = AuthenticationRepository()
 
     // Data binding variables
@@ -33,9 +33,5 @@ class LoginViewModel : ViewModel() {
                 SharedApp.preferences.username = username.value!!
             }
         }
-    }
-
-    fun onSignupClicked() {
-
     }
 }

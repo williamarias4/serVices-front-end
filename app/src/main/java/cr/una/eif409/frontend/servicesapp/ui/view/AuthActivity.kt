@@ -31,7 +31,7 @@ class AuthActivity : AppCompatActivity() {
             .setupWithNavController(navController, appBarConfiguration)
     }
 
-    private fun navigateToMainActivity() {
+    fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

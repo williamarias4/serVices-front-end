@@ -1,6 +1,5 @@
 package cr.una.eif409.frontend.servicesapp.ui.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import cr.una.eif409.frontend.servicesapp.R
 import cr.una.eif409.frontend.servicesapp.databinding.FragmentLoginBinding
 import cr.una.eif409.frontend.servicesapp.ui.viewmodel.LoginViewModel
@@ -20,24 +20,19 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.loginViewModel = loginViewModel
 
-        login()
+        listenForActions()
 
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding.unbind()
-    }
-
-    private fun login() {
+    private fun listenForActions() {
         // Observe for changes in the input fields
         loginViewModel.userLogin.observe(requireActivity()) {
             if (it.username.isNullOrBlank()) {
@@ -56,12 +51,21 @@ class LoginFragment : Fragment() {
                 false -> showMessage("Usuario o contraseña incorrectos")
             }
         }
+
+        // Navigate to register fragment when the register button is clicked
+        binding.loginActivityTvSignup.setOnClickListener {
+            navigateToRegisterFragment()
+        }
+    }
+
+    private fun navigateToRegisterFragment() {
+        val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+        val navController = requireParentFragment().findNavController()
+        navController.navigate(action)
     }
 
     private fun navigateToMainActivity() {
-        val intent = Intent(context, MainActivity::class.java)
-        startActivity(intent)
-        activity?.finish()
+        (activity as AuthActivity).navigateToMainActivity()
     }
 
     private fun showMessage(message: String) {
