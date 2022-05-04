@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
 
     private fun listenForActions() {
         // Observe for changes in the input fields
-        loginViewModel.userLogin.observe(requireActivity()) {
+        loginViewModel.userLogin.observe(viewLifecycleOwner) {
             if (it.username.isNullOrBlank()) {
                 binding.loginActivityEtEmail.error = "Correo electrónico requerido"
                 binding.loginActivityEtEmail.requestFocus()
@@ -45,10 +45,15 @@ class LoginFragment : Fragment() {
         }
 
         // Observe for changes in the login status
-        loginViewModel.isValidUser.observe(requireActivity()) {
-            when (it) {
-                true -> navigateToMainActivity()
-                false -> showMessage("Usuario o contraseña incorrectos")
+        loginViewModel.isValidUser.observe(viewLifecycleOwner) {
+            if (it) navigateToMainActivity()
+        }
+
+        // Observe for error messages
+        loginViewModel.errorMessage.observe(viewLifecycleOwner) {
+            if (it != null) {
+                showMessage(it)
+                loginViewModel.errorMessage.postValue(null)
             }
         }
 

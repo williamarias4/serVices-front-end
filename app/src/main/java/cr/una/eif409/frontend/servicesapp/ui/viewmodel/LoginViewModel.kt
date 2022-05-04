@@ -3,6 +3,7 @@ package cr.una.eif409.frontend.servicesapp.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cr.una.eif409.frontend.servicesapp.core.ServiceResponse
 import cr.una.eif409.frontend.servicesapp.core.SharedApp
 import cr.una.eif409.frontend.servicesapp.data.model.UserLogin
 import cr.una.eif409.frontend.servicesapp.data.repository.AuthenticationRepository
@@ -19,6 +20,7 @@ class LoginViewModel : ViewModel() {
     // Variables to communicate with the view
     var userLogin: MutableLiveData<UserLogin> = MutableLiveData()
     var isValidUser: MutableLiveData<Boolean> = MutableLiveData()
+    var errorMessage: MutableLiveData<String> = MutableLiveData()
 
     fun onLoginClicked() {
         userLogin.value = UserLogin(username.value, password.value)
@@ -27,10 +29,15 @@ class LoginViewModel : ViewModel() {
 
         // Execute login request
         viewModelScope.launch {
-            isValidUser.value = authenticationRepository.login(userLogin.value!!) != null
-
-            if (isValidUser.value!!) {
-                SharedApp.preferences.username = username.value!!
+            when (val result = authenticationRepository.login(userLogin.value!!)) {
+                is ServiceResponse.Success -> {
+                    isValidUser.value = true
+                    SharedApp.preferences.username = username.value!!
+                }
+                is ServiceResponse.Error -> {
+                    isValidUser.value = false
+                    errorMessage.postValue(result.exception.message)
+                }
             }
         }
     }
