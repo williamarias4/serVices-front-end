@@ -35,12 +35,15 @@ class LoginFragment : Fragment() {
     private fun listenForActions() {
         // Observe for changes in the input fields
         loginViewModel.userLogin.observe(viewLifecycleOwner) {
-            if (it.username.isNullOrBlank()) {
-                binding.loginActivityEtEmail.error = "Correo electrónico requerido"
-                binding.loginActivityEtEmail.requestFocus()
-            } else if (it.password.isNullOrEmpty()) {
-                binding.loginActivityEtPassword.error = "Contraseña requerida"
-                binding.loginActivityEtPassword.requestFocus()
+            when {
+                it.username.isNullOrBlank() -> {
+                    binding.loginActivityEtEmail.error = "Correo electrónico requerido"
+                    binding.loginActivityEtEmail.requestFocus()
+                }
+                it.password.isNullOrBlank() -> {
+                    binding.loginActivityEtPassword.error = "Contraseña requerida"
+                    binding.loginActivityEtPassword.requestFocus()
+                }
             }
         }
 
