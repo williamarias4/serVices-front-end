@@ -32,4 +32,13 @@
     <string name="profile_fragment_password_current_hint">Contraseña actual</string>
     <string name="profile_fragment_password_new_hint">Contraseña nueva</string>
     <string name="profile_fragment_password_confirm_hint">Confirmar contraseña</string>
+
+    <!-- Signup fragment strings -->
+    <string name="register_fragment_et_name_hint">Nombre</string>
+    <string name="register_fragment_et_lastname_hint">Apellidos</string>
+    <string name="register_fragment_et_email_hint">Correo electrónico</string>
+    <string name="register_fragment_et_phone_hint">Número de teléfono</string>
+    <string name="register_fragment_et_password_hint">Contraseña</string>
+    <string name="register_fragment_et_password_confirm_hint">Confirmar contraseña</string>
+    <string name="register_fragment_btn_register">Registrarse</string>
 </resources>

@@ -7,10 +7,9 @@ data class UserLogin(
     @SerializedName("password") val password: String? = null,
 )
 
-data class UserRegister(
+data class UserSignup(
     val name: String? = null,
-    val firstLastName: String? = null,
-    val secondLastName: String? = null,
+    val lastName: String? = null,
     val email: String? = null,
     val phoneNumber: String? = null,
     val password: String? = null,
