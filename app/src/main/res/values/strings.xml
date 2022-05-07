@@ -41,4 +41,7 @@
     <string name="register_fragment_et_password_hint">Contraseña</string>
     <string name="register_fragment_et_password_confirm_hint">Confirmar contraseña</string>
     <string name="register_fragment_btn_register">Registrarse</string>
+
+    <!-- Toolbar actions strings -->
+    <string name="toolbar_action_logout">Cerrar sesión</string>
 </resources>
