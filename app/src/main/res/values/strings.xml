@@ -44,4 +44,14 @@
 
     <!-- Toolbar actions strings -->
     <string name="toolbar_action_logout">Cerrar sesión</string>
+
+    <!-- New Service fragment strings -->
+    <string name="new_service_fragment_tv_title">Título del servicio</string>
+    <string name="new_service_fragment_et_title">Digite el título del servicio</string>
+    <string name="new_service_fragment_tv_type">Tipo de servicio</string>
+    <string name="new_service_fragment_tv_price">Precio</string>
+    <string name="new_service_fragment_et_price">Digite el precio del servicio</string>
+    <string name="new_service_fragment_tv_description">Descripción</string>
+    <string name="new_service_fragment_et_description">Digite la descripción del servicio</string>
+    <string name="new_service_fragment_btn_save">Publicar</string>
 </resources>
