@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="services_array">
+        <item></item>
+        <item>Mecánico</item>
+        <item>Electricista</item>
+        <item>Soldador</item>
+        <item>Carpintero</item>
+        <item>Cerrajero</item>
+        <item>Pintor</item>
+        <item>Masajista</item>
+        <item>Fisioterapeuta</item>
+        <item>Limpieza</item>
+        <item>Cuidador</item>
+        <item>Programador</item>
+        <item>Diseñador gráfico</item>
+        <item>Diseñador web</item>
+        <item>Profesor</item>
+        <item>Otro</item>
+    </string-array>
+</resources>

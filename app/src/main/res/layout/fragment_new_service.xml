@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="RegisterViewModel"
-            type="cr.una.eif409.frontend.servicesapp.ui.viewmodel.RegisterViewModel" />
+            name="NewServiceViewModel"
+            type="cr.una.eif409.frontend.servicesapp.ui.viewmodel.NewServiceViewModel" />
     </data>
 
     <ScrollView
@@ -39,6 +39,7 @@
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:minHeight="48dp"
+                android:text="@={NewServiceViewModel.title}"
                 android:textColorHint="#757575"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +57,7 @@
 
             <Spinner
                 android:id="@+id/new_service_fragment_sp_type"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -85,6 +87,7 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:minHeight="48dp"
+                android:text="@={NewServiceViewModel.price}"
                 android:textColorHint="#757575"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +118,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:scrollbars="vertical"
+                android:text="@={NewServiceViewModel.description}"
                 android:textColorHint="#546E7A"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -125,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:onClick="@{() -> NewServiceViewModel.onSave()}"
                 android:text="@string/new_service_fragment_btn_save"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
