@@ -1,6 +1,7 @@
 package cr.una.eif409.frontend.servicesapp.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.math.BigDecimal
 
 data class UserLogin(
     @SerializedName("user_name") val username: String? = null,
@@ -25,17 +26,18 @@ data class UserResult(
 
 data class ServiceInput(
     val title: String? = null,
-    val type: String? = null,
-    val price: String? = null,
     val description: String? = null,
+    val category: String? = null,
+    val price: BigDecimal? = null,
+    val publisher: UserResult? = null,
 )
 
-// TODO: Add missing properties
-data class ServiceResult(
-    val id: Int? = null,
-    val publisher: String? = null,
+data class ServiceDetails(
+    val id: Long? = null,
     val title: String? = null,
     val description: String? = null,
-    val email: String? = null,
-    val phoneNumber: String? = null,
+    val category: String? = null,
+    val price: BigDecimal? = null,
+    val active: Boolean? = null,
+    val publisher: UserResult? = null,
 )

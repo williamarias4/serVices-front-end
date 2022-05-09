@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.eif409.frontend.servicesapp.R
-import cr.una.eif409.frontend.servicesapp.data.model.ServiceResult
+import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 
-class ServicesAdapter(private val serviceList: ArrayList<ServiceResult>) :
+class ServicesAdapter(private val serviceList: ArrayList<ServiceDetails>) :
     RecyclerView.Adapter<ServicesAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,11 +30,11 @@ class ServicesAdapter(private val serviceList: ArrayList<ServiceResult>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val service = serviceList[position]
 
-        viewHolder.publisher.text = service.publisher
+        viewHolder.publisher.text = "Nombre persona"
         viewHolder.title.text = service.title
         viewHolder.description.text = service.description
-        viewHolder.phoneNumber.text = service.phoneNumber
-        viewHolder.email.text = service.email
+        viewHolder.phoneNumber.text = "Telefono"
+        viewHolder.email.text = "Email"
     }
 
     override fun getItemCount() = serviceList.size

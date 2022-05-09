@@ -7,6 +7,7 @@ import cr.una.eif409.frontend.servicesapp.core.ServiceResponse
 import cr.una.eif409.frontend.servicesapp.data.model.ServiceInput
 import cr.una.eif409.frontend.servicesapp.data.repository.ServiceRepository
 import kotlinx.coroutines.launch
+import java.math.BigDecimal
 
 class NewServiceViewModel : ViewModel() {
     // Repository instance
@@ -14,7 +15,7 @@ class NewServiceViewModel : ViewModel() {
 
     // Data binding variables
     var title: MutableLiveData<String> = MutableLiveData()
-    var type: MutableLiveData<String> = MutableLiveData()
+    var category: MutableLiveData<String> = MutableLiveData()
     var price: MutableLiveData<String> = MutableLiveData()
     var description: MutableLiveData<String> = MutableLiveData()
 
@@ -24,23 +25,26 @@ class NewServiceViewModel : ViewModel() {
     var errorMessage: MutableLiveData<String> = MutableLiveData()
 
     fun onSave() {
+        val parsedPrice = if (price.value != null) BigDecimal(price.value) else null
+
         serviceInput.value = ServiceInput(
             title.value,
-            type.value,
-            price.value,
-            description.value
+            description.value,
+            category.value,
+            parsedPrice,
+            null
         )
 
         if (isServiceInputValid()) saveService() else return
     }
-    
+
     private fun isServiceInputValid(): Boolean {
         val service = serviceInput.value ?: return false
 
         return !(service.title.isNullOrBlank() ||
-                service.type.isNullOrBlank() ||
-                service.type.isNullOrBlank() ||
-                service.price.isNullOrBlank() ||
+                service.category.isNullOrBlank() ||
+                service.category.isNullOrBlank() ||
+                service.price == null || service.price < BigDecimal.ZERO ||
                 service.description.isNullOrBlank())
     }
 

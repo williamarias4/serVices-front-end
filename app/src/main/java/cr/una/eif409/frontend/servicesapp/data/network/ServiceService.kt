@@ -3,7 +3,7 @@ package cr.una.eif409.frontend.servicesapp.data.network
 import cr.una.eif409.frontend.servicesapp.core.RetrofitBuilder
 import cr.una.eif409.frontend.servicesapp.core.ServiceResponse
 import cr.una.eif409.frontend.servicesapp.data.model.ServiceInput
-import cr.una.eif409.frontend.servicesapp.data.model.ServiceResult
+import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -11,7 +11,7 @@ class ServiceService {
     private val retrofit = RetrofitBuilder.getRetrofitInstance()
     private val serviceApiClient = retrofit.create(ServiceApiClient::class.java)
 
-    suspend fun getServices(): ServiceResponse<ArrayList<ServiceResult>> =
+    suspend fun getServices(): ServiceResponse<ArrayList<ServiceDetails>> =
         withContext(Dispatchers.IO) {
             try {
                 val response = serviceApiClient.getServices()
@@ -25,7 +25,7 @@ class ServiceService {
             }
         }
 
-    suspend fun createService(serviceInput: ServiceInput): ServiceResponse<ServiceResult> =
+    suspend fun createService(serviceInput: ServiceInput): ServiceResponse<ServiceDetails> =
         withContext(Dispatchers.IO) {
             try {
                 val response = serviceApiClient.createService(serviceInput)

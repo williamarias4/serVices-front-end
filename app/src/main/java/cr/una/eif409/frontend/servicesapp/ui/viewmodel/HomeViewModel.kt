@@ -4,13 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cr.una.eif409.frontend.servicesapp.core.ServiceResponse
-import cr.una.eif409.frontend.servicesapp.data.model.ServiceResult
+import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 import cr.una.eif409.frontend.servicesapp.data.repository.ServiceRepository
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
     private val serviceRepository = ServiceRepository()
-    var serviceList: ArrayList<ServiceResult> = ArrayList()
+    var serviceList: ArrayList<ServiceDetails> = ArrayList()
     var message: MutableLiveData<String> = MutableLiveData()
 
     init {

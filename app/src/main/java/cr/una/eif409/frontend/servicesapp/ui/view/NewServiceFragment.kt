@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import cr.una.eif409.frontend.servicesapp.R
 import cr.una.eif409.frontend.servicesapp.databinding.FragmentNewServiceBinding
 import cr.una.eif409.frontend.servicesapp.ui.viewmodel.NewServiceViewModel
+import java.math.BigDecimal
 
 class NewServiceFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: FragmentNewServiceBinding
@@ -38,12 +39,12 @@ class NewServiceFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     // Spinner on item selected listener
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-        newServiceViewModel.type.value = parent.getItemAtPosition(pos).toString()
+        newServiceViewModel.category.value = parent.getItemAtPosition(pos).toString()
     }
 
     // Spinner on nothing selected listener
     override fun onNothingSelected(parent: AdapterView<*>) {
-        newServiceViewModel.type.value = ""
+        newServiceViewModel.category.value = ""
     }
 
     private fun loadSpinnerData() {
@@ -67,11 +68,11 @@ class NewServiceFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     binding.newServiceFragmentEtTitle.error = "Titulo requerido"
                     binding.newServiceFragmentEtTitle.requestFocus()
                 }
-                it.type.isNullOrBlank() -> {
+                it.category.isNullOrBlank() -> {
                     val textView = binding.newServiceFragmentSpType.selectedView as TextView
                     textView.error = ""
                 }
-                it.price.isNullOrBlank() -> {
+                it.price == null || it.price < BigDecimal.ZERO -> {
                     binding.newServiceFragmentEtPrice.error = "Precio requerido"
                     binding.newServiceFragmentEtPrice.requestFocus()
                 }
