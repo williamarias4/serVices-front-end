@@ -33,4 +33,9 @@ data class ServiceInput(
 // TODO: Add missing properties
 data class ServiceResult(
     val id: Int? = null,
+    val publisher: String? = null,
+    val title: String? = null,
+    val description: String? = null,
+    val email: String? = null,
+    val phoneNumber: String? = null,
 )

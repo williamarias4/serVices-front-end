@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 interface ServiceApiClient {
     @GET("api/v1/services")
-    suspend fun getServices(): Response<ServiceResult>
+    suspend fun getServices(): Response<ArrayList<ServiceResult>>
 
     @POST("api/v1/services")
     suspend fun createService(@Body serviceInput: ServiceInput): Response<ServiceResult>

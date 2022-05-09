@@ -11,7 +11,7 @@ class ServiceService {
     private val retrofit = RetrofitBuilder.getRetrofitInstance()
     private val serviceApiClient = retrofit.create(ServiceApiClient::class.java)
 
-    suspend fun getServices(): ServiceResponse<ServiceResult> =
+    suspend fun getServices(): ServiceResponse<ArrayList<ServiceResult>> =
         withContext(Dispatchers.IO) {
             try {
                 val response = serviceApiClient.getServices()

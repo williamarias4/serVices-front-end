@@ -4,15 +4,52 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import cr.una.eif409.frontend.servicesapp.R
+import cr.una.eif409.frontend.servicesapp.databinding.FragmentHomeBinding
+import cr.una.eif409.frontend.servicesapp.ui.adapter.ServicesAdapter
+import cr.una.eif409.frontend.servicesapp.ui.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.homeViewModel = viewModel
+
+        setUpRecyclerView()
+        listenForEvents()
+
+        return binding.root
+    }
+
+    private fun setUpRecyclerView() {
+        val recyclerView = binding.fragmentHomeRecyclerView
+        val adapter = ServicesAdapter(viewModel.serviceList)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+    }
+
+    private fun listenForEvents() {
+        viewModel.message.observe(viewLifecycleOwner) {
+            if (it != null) {
+                showMessage(it)
+                viewModel.message.value = null
+            }
+        }
+    }
+
+    private fun showMessage(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }
