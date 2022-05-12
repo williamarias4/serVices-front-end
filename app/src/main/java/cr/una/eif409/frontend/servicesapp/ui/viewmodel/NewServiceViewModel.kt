@@ -4,7 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cr.una.eif409.frontend.servicesapp.core.ServiceResponse
+import cr.una.eif409.frontend.servicesapp.core.SharedApp
 import cr.una.eif409.frontend.servicesapp.data.model.ServiceInput
+import cr.una.eif409.frontend.servicesapp.data.model.UserResult
 import cr.una.eif409.frontend.servicesapp.data.repository.ServiceRepository
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
@@ -32,7 +34,7 @@ class NewServiceViewModel : ViewModel() {
             description.value,
             category.value,
             parsedPrice,
-            null
+            UserResult(username = SharedApp.preferences.username),
         )
 
         if (isServiceInputValid()) saveService() else return
