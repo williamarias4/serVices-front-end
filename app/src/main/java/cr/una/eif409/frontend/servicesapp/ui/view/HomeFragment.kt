@@ -17,6 +17,7 @@ import cr.una.eif409.frontend.servicesapp.ui.viewmodel.HomeViewModel
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
+    private lateinit var adapter: ServicesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +29,7 @@ class HomeFragment : Fragment() {
         binding.homeViewModel = viewModel
 
         setUpRecyclerView()
+        setUpSwiperContainer()
         listenForEvents()
 
         return binding.root
@@ -35,12 +37,27 @@ class HomeFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         val recyclerView = binding.fragmentHomeRecyclerView
-        val adapter = ServicesAdapter(viewModel.serviceList)
+        adapter = ServicesAdapter(viewModel.serviceList.value ?: arrayListOf())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
+    private fun setUpSwiperContainer() {
+        binding.swipeContainer.setOnRefreshListener {
+            viewModel.getServices()
+        }
+    }
+
     private fun listenForEvents() {
+        viewModel.serviceList.observe(viewLifecycleOwner) {
+            adapter.clear()
+            adapter.addAll(it)
+        }
+
+        viewModel.response.observe(viewLifecycleOwner) {
+            if (it) binding.swipeContainer.isRefreshing = false
+        }
+
         viewModel.message.observe(viewLifecycleOwner) {
             if (it != null) {
                 showMessage(it)

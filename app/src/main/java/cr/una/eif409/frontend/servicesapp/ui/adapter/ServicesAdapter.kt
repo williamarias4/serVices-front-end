@@ -37,5 +37,15 @@ class ServicesAdapter(private val serviceList: ArrayList<ServiceDetails>) :
         viewHolder.email.text = "Email"
     }
 
+    fun clear() {
+        serviceList.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addAll(services: ArrayList<ServiceDetails>) {
+        serviceList.addAll(services)
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount() = serviceList.size
 }
