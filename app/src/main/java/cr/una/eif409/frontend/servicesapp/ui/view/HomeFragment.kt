@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import cr.una.eif409.frontend.servicesapp.R
+import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 import cr.una.eif409.frontend.servicesapp.databinding.FragmentHomeBinding
 import cr.una.eif409.frontend.servicesapp.ui.adapter.ServicesAdapter
 import cr.una.eif409.frontend.servicesapp.ui.viewmodel.HomeViewModel
@@ -50,8 +51,9 @@ class HomeFragment : Fragment() {
 
     private fun listenForEvents() {
         viewModel.serviceList.observe(viewLifecycleOwner) {
+            val services = ArrayList<ServiceDetails>(it)
             adapter.clear()
-            adapter.addAll(it)
+            adapter.addAll(services)
         }
 
         viewModel.response.observe(viewLifecycleOwner) {
