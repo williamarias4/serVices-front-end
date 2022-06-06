@@ -1,14 +1,13 @@
 package cr.una.eif409.frontend.servicesapp.core
 
 import android.content.Context
-import android.content.SharedPreferences
 
 class Preferences(context: Context) {
     private val preferencesName = "cr.una.eif409.frontend.servicesapp"
-    private val preferences: SharedPreferences = context.getSharedPreferences(preferencesName, 0)
-    private val storedUsername = ""
+    private val preferences = context.getSharedPreferences(preferencesName, 0)
+    private val storedToken = ""
 
-    var username: String
-        get() = preferences.getString(storedUsername, "")!!
-        set(value) = preferences.edit().putString(storedUsername, value).apply()
+    var token: String
+        get() = preferences.getString(storedToken, "")!!
+        set(value) = preferences.edit().putString(storedToken, value).apply()
 }

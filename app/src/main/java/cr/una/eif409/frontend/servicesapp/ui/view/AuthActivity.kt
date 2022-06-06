@@ -16,7 +16,7 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
 
         // If user is logged in, go to MainActivity
-        if (SharedApp.preferences.username.isNotBlank()) {
+        if (SharedApp.preferences.token.isNotBlank()) {
             navigateToMainActivity()
         }
 

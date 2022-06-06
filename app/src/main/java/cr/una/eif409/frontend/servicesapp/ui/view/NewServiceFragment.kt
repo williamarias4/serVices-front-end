@@ -72,7 +72,7 @@ class NewServiceFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     val textView = binding.newServiceFragmentSpType.selectedView as TextView
                     textView.error = ""
                 }
-                it.price == null || it.price < BigDecimal.ZERO -> {
+                it.price == null || it.price!! < BigDecimal.ZERO -> {
                     binding.newServiceFragmentEtPrice.error = "Precio requerido"
                     binding.newServiceFragmentEtPrice.requestFocus()
                 }

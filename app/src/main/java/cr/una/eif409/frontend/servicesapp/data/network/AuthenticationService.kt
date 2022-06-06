@@ -2,6 +2,7 @@ package cr.una.eif409.frontend.servicesapp.data.network
 
 import cr.una.eif409.frontend.servicesapp.core.RetrofitBuilder
 import cr.una.eif409.frontend.servicesapp.core.ServiceResponse
+import cr.una.eif409.frontend.servicesapp.data.model.LoginResponse
 import cr.una.eif409.frontend.servicesapp.data.model.UserLogin
 import cr.una.eif409.frontend.servicesapp.data.model.UserResult
 import cr.una.eif409.frontend.servicesapp.data.model.UserSignup
@@ -12,7 +13,7 @@ class AuthenticationService {
     private val retrofit = RetrofitBuilder.getRetrofitInstance()
     private val authenticationApiClient = retrofit.create(AuthenticationApiClient::class.java)
 
-    suspend fun login(userLogin: UserLogin): ServiceResponse<UserResult> =
+    suspend fun login(userLogin: UserLogin): ServiceResponse<LoginResponse> =
         withContext(Dispatchers.IO) {
             try {
                 val response = authenticationApiClient.login(userLogin)

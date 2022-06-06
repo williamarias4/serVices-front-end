@@ -61,12 +61,12 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/login_activity_et_email"
+                        android:id="@+id/login_activity_et_username"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:ems="10"
-                        android:hint="@string/login_activity_email_hint"
+                        android:hint="@string/login_activity_username_hint"
                         android:importantForAutofill="no"
                         android:inputType="textWebEmailAddress"
                         android:minHeight="48dp"
@@ -91,7 +91,7 @@
                         app:layout_constraintBottom_toTopOf="@+id/login_activity_btn_signin"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/login_activity_et_email" />
+                        app:layout_constraintTop_toBottomOf="@+id/login_activity_et_username" />
 
                     <Button
                         android:id="@+id/login_activity_btn_signin"

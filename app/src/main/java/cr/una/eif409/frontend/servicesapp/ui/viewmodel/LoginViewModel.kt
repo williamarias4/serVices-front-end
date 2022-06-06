@@ -32,7 +32,7 @@ class LoginViewModel : ViewModel() {
             when (val result = authenticationRepository.login(userLogin.value!!)) {
                 is ServiceResponse.Success -> {
                     isValidUser.value = true
-                    SharedApp.preferences.username = username.value!!
+                    SharedApp.preferences.token = result.data.token!!.split("token=")[0]
                 }
                 is ServiceResponse.Error -> {
                     isValidUser.value = false

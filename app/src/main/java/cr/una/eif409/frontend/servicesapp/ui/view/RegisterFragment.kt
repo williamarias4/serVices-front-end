@@ -35,19 +35,19 @@ class RegisterFragment : Fragment() {
         // Observe for changes in the input fields
         registerViewModel.userSignup.observe(viewLifecycleOwner) {
             when {
-                it.name.isNullOrBlank() -> {
-                    binding.registerFragmentEtName.error = "Nombre requerido"
-                    binding.registerFragmentEtName.requestFocus()
+                it.person?.fullName.isNullOrBlank() -> {
+                    binding.registerFragmentEtFullName.error = "Nombre requerido"
+                    binding.registerFragmentEtFullName.requestFocus()
                 }
-                it.lastName.isNullOrBlank() -> {
-                    binding.registerFragmentEtLastname.error = "Apellidos requeridos"
-                    binding.registerFragmentEtLastname.requestFocus()
+                it.username.isNullOrBlank() -> {
+                    binding.registerFragmentEtUsername.error = "Usuario requerido"
+                    binding.registerFragmentEtUsername.requestFocus()
                 }
-                it.email.isNullOrBlank() -> {
+                it.person?.email.isNullOrBlank() -> {
                     binding.registerFragmentEtEmail.error = "Email requerido"
                     binding.registerFragmentEtEmail.requestFocus()
                 }
-                it.phoneNumber.isNullOrBlank() -> {
+                it.person?.phoneNumber.isNullOrBlank() -> {
                     binding.registerFragmentEtPhone.error = "Teléfono requerido"
                     binding.registerFragmentEtPhone.requestFocus()
                 }

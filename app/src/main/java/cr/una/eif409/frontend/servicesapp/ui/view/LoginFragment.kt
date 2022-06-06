@@ -37,8 +37,8 @@ class LoginFragment : Fragment() {
         loginViewModel.userLogin.observe(viewLifecycleOwner) {
             when {
                 it.username.isNullOrBlank() -> {
-                    binding.loginActivityEtEmail.error = "Correo electrónico requerido"
-                    binding.loginActivityEtEmail.requestFocus()
+                    binding.loginActivityEtUsername.error = "Usuario requerido"
+                    binding.loginActivityEtUsername.requestFocus()
                 }
                 it.password.isNullOrBlank() -> {
                     binding.loginActivityEtPassword.error = "Contraseña requerida"

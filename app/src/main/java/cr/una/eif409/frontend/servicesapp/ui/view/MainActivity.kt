@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        SharedApp.preferences.username = ""
+        SharedApp.preferences.token = ""
         val intent = Intent(this, AuthActivity::class.java)
         startActivity(intent)
         finish()

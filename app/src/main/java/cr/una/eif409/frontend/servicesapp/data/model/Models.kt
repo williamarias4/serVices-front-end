@@ -4,40 +4,69 @@ import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
 
 data class UserLogin(
-    @SerializedName("user_name") val username: String? = null,
-    @SerializedName("password") val password: String? = null,
+    @SerializedName("user_name")
+    var username: String? = null,
+    @SerializedName("password")
+    var password: String? = null,
 )
 
 data class UserSignup(
-    val name: String? = null,
-    val lastName: String? = null,
-    val email: String? = null,
-    val phoneNumber: String? = null,
-    val password: String? = null,
-    val passwordConfirmation: String? = null,
+    @SerializedName("user_name")
+    var username: String? = null,
+    var password: String? = null,
+    var passwordConfirmation: String? = null,
+    var person: Person? = null,
+    var role: Role? = null,
 )
 
-// TODO: Add missing properties
+data class LoginResponse(
+    @SerializedName("jwtToken")
+    var token: String? = null,
+)
+
 data class UserResult(
-    @SerializedName("user_name") val username: String? = null,
-    @SerializedName("password") val password: String? = null,
-    @SerializedName("reset_password_token") val resetPasswordToken: String? = null,
+    var id: Long? = null,
+    @SerializedName("user_name")
+    var username: String? = null,
+    var password: String? = null,
+    @SerializedName("reset_password_token")
+    var resetPasswordToken: String? = null,
+    var person: Person? = null,
+    var role: Role? = null,
+)
+
+data class Person(
+    @SerializedName("id_number")
+    var id: Long? = null,
+    @SerializedName("full_name")
+    var fullName: String? = null,
+    var email: String? = null,
+    @SerializedName("cell_phone")
+    var phoneNumber: String? = null,
+    var province: String? = null,
+    var address: String? = null,
+)
+
+data class Role(
+    var id: Long? = null,
+    var type: String? = null,
 )
 
 data class ServiceInput(
-    val title: String? = null,
-    val description: String? = null,
-    val category: String? = null,
-    val price: BigDecimal? = null,
-    val publisher: UserResult? = null,
+    var title: String? = null,
+    var description: String? = null,
+    var category: String? = null,
+    var price: BigDecimal? = null,
+    var active: Boolean? = null,
+    var publisher: UserResult? = null,
 )
 
 data class ServiceDetails(
-    val id: Long? = null,
-    val title: String? = null,
-    val description: String? = null,
-    val category: String? = null,
-    val price: BigDecimal? = null,
-    val active: Boolean? = null,
-    val publisher: UserResult? = null,
+    var id: Long? = null,
+    var title: String? = null,
+    var description: String? = null,
+    var category: String? = null,
+    var price: BigDecimal? = null,
+    var active: Boolean? = null,
+    var publisher: UserResult? = null,
 )

@@ -12,55 +12,52 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <!-- Name -->
             <EditText
-                android:id="@+id/register_fragment_et_name"
-                android:layout_width="0dp"
+                android:id="@+id/register_fragment_et_full_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:hint="@string/register_fragment_et_name_hint"
+                android:hint="@string/register_fragment_et_full_name_hint"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                android:text="@={RegisterViewModel.name}"
+                android:text="@={RegisterViewModel.fullName}"
                 android:textColorHint="#757575"
-                app:layout_constraintBottom_toTopOf="@+id/register_fragment_et_lastname"
+                app:layout_constraintBottom_toTopOf="@+id/register_fragment_et_username"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Last Name -->
             <EditText
-                android:id="@+id/register_fragment_et_lastname"
-                android:layout_width="0dp"
+                android:id="@+id/register_fragment_et_username"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:hint="@string/register_fragment_et_lastname_hint"
+                android:hint="@string/register_fragment_et_username_hint"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:minHeight="48dp"
-                android:text="@={RegisterViewModel.lastName}"
+                android:text="@={RegisterViewModel.username}"
                 android:textColorHint="#757575"
                 app:layout_constraintBottom_toTopOf="@+id/register_fragment_et_email"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_name" />
+                app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_full_name" />
 
-            <!-- Email -->
             <EditText
                 android:id="@+id/register_fragment_et_email"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
@@ -74,12 +71,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_lastname" />
+                app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_username" />
 
-            <!-- Phone number -->
             <EditText
                 android:id="@+id/register_fragment_et_phone"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
@@ -95,10 +91,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_email" />
 
-            <!-- Password -->
             <EditText
                 android:id="@+id/register_fragment_et_password"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
@@ -114,10 +109,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_phone" />
 
-            <!-- Password confirmation -->
             <EditText
                 android:id="@+id/register_fragment_et_password_confirm"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
@@ -133,7 +127,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_fragment_et_password" />
 
-            <!-- Register button -->
             <Button
                 android:id="@+id/register_fragment_btn_register"
                 android:layout_width="wrap_content"

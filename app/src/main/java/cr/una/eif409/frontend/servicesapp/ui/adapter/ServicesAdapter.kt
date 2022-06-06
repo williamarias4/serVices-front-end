@@ -30,11 +30,11 @@ class ServicesAdapter(private val serviceList: ArrayList<ServiceDetails>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val service = serviceList[position]
 
-        viewHolder.publisher.text = "Nombre persona"
+        viewHolder.publisher.text = service.publisher?.person?.fullName ?: "Nombre no disponible"
         viewHolder.title.text = service.title
         viewHolder.description.text = service.description
-        viewHolder.phoneNumber.text = "Telefono"
-        viewHolder.email.text = "Email"
+        viewHolder.phoneNumber.text = service.publisher?.person?.phoneNumber ?: "Número no disponible"
+        viewHolder.email.text = service.publisher?.person?.email ?: "Email no disponible"
     }
 
     fun clear() {
