@@ -55,7 +55,7 @@
                         android:text="@string/login_activity_heading"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/login_activity_et_email"
+                        app:layout_constraintBottom_toTopOf="@+id/login_activity_et_username"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
