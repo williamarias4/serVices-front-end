@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import cr.una.eif409.frontend.servicesapp.R
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         // Setup the bottom navigation
         findViewById<BottomNavigationView>(R.id.bottom_nav)
             .setupWithNavController(navController)
+
+        findViewById<Toolbar>(R.id.toolbar)
+            .setNavigationOnClickListener { _ ->
+                NavigationUI.navigateUp(navController, appBarConfiguration)
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

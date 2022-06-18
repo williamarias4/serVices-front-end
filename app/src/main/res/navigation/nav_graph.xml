@@ -25,11 +25,21 @@
         android:id="@+id/myServicesFragment"
         android:name="cr.una.eif409.frontend.servicesapp.ui.view.MyServicesFragment"
         android:label="@string/my_services_fragment_title"
-        tools:layout="@layout/fragment_my_services" />
+        tools:layout="@layout/fragment_my_services" >
+        <action
+            android:id="@+id/action_myServicesFragment_to_editServiceFragment"
+            app:destination="@id/editServiceFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="cr.una.eif409.frontend.servicesapp.ui.view.ProfileFragment"
         android:label="@string/profile_fragment_title"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/editServiceFragment"
+        android:name="cr.una.eif409.frontend.servicesapp.ui.view.EditServiceFragment"
+        android:label="@string/edit_service_fragment_title"
+        tools:layout="@layout/fragment_edit_service"/>
 </navigation>

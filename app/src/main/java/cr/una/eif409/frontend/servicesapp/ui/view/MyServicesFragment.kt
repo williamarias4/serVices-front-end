@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cr.una.eif409.frontend.servicesapp.R
 import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
@@ -17,7 +19,7 @@ import cr.una.eif409.frontend.servicesapp.ui.viewmodel.MyServicesViewModel
 
 class MyServicesFragment : Fragment() {
     private lateinit var binding: FragmentMyServicesBinding
-    private lateinit var viewModel: MyServicesViewModel
+    private val viewModel: MyServicesViewModel by activityViewModels()
     private lateinit var adapter: ServicesAdapter
 
     override fun onCreateView(
@@ -25,7 +27,6 @@ class MyServicesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this).get(MyServicesViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_services, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.myServicesViewModel = viewModel
@@ -41,7 +42,8 @@ class MyServicesFragment : Fragment() {
     private fun setUpRecyclerView() {
         val recyclerView = binding.fragmentMyServicesRecyclerView
         adapter = ServicesAdapter(viewModel.serviceList.value ?: arrayListOf()) {
-            Toast.makeText(context, "Clicked on ${it.description}", Toast.LENGTH_SHORT).show()
+            viewModel.selectedService.postValue(it)
+            findNavController().navigate(R.id.action_myServicesFragment_to_editServiceFragment)
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)

@@ -52,4 +52,18 @@ class ServiceService {
                 ServiceResponse.Error(e)
             }
         }
+
+    suspend fun deleteService(serviceId: Long): ServiceResponse<Unit> =
+        withContext(Dispatchers.IO) {
+            try {
+                val response = serviceApiClient.deleteService(serviceId)
+
+                when (response.isSuccessful) {
+                    true -> ServiceResponse.Success(Unit)
+                    false -> ServiceResponse.Error(Exception("No se pudo eliminar el servicio"))
+                }
+            } catch (e: Exception) {
+                ServiceResponse.Error(e)
+            }
+        }
 }

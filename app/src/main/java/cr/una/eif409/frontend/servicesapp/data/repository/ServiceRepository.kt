@@ -13,4 +13,6 @@ class ServiceRepository {
 
     suspend fun getServicesByUserName(userName: String) =
         serviceService.getServicesByUserName(userName)
+
+    suspend fun deleteService(serviceId: Long) = serviceService.deleteService(serviceId)
 }

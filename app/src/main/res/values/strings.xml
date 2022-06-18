@@ -7,6 +7,7 @@
     <string name="new_service_fragment_title">Nuevo servicio</string>
     <string name="my_services_fragment_title">Mis servicios</string>
     <string name="profile_fragment_title">Mi perfil</string>
+    <string name="edit_service_fragment_title">Editar servicio</string>
 
     <!-- Bottom navigation strings -->
     <string name="menu_home">Inicio</string>

@@ -1,5 +1,6 @@
 package cr.una.eif409.frontend.servicesapp.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,11 +11,13 @@ import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 import cr.una.eif409.frontend.servicesapp.data.repository.ServiceRepository
 import kotlinx.coroutines.launch
 
-class MyServicesViewModel: ViewModel() {
+class MyServicesViewModel : ViewModel() {
     private val serviceRepository = ServiceRepository()
     var serviceList: MutableLiveData<ArrayList<ServiceDetails>> = MutableLiveData()
+    var selectedService: MutableLiveData<ServiceDetails> = MutableLiveData()
     var response: MutableLiveData<Boolean> = MutableLiveData(false)
     var message: MutableLiveData<String> = MutableLiveData()
+    var deleted: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun getServices() {
         val jwt = JWT(SharedApp.preferences.token)
@@ -33,5 +36,25 @@ class MyServicesViewModel: ViewModel() {
                 }
             }
         }
+    }
+
+    fun onDelete() {
+        val serviceId = selectedService.value?.id ?: return
+
+        viewModelScope.launch {
+            when (serviceRepository.deleteService(serviceId)) {
+                is ServiceResponse.Success -> {
+                    deleted.value = true
+                    message.value = "Servicio eliminado correctamente"
+                }
+                is ServiceResponse.Error -> {
+                    message.value = "Error al eliminar el servicio"
+                }
+            }
+        }
+    }
+
+    fun onSave() {
+        Log.d("MyServicesViewModel", "onSave")
     }
 }
