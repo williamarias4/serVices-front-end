@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import cr.una.eif409.frontend.servicesapp.R
 import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 
-class ServicesAdapter(private val serviceList: ArrayList<ServiceDetails>) :
-    RecyclerView.Adapter<ServicesAdapter.ViewHolder>() {
+class ServicesAdapter(
+    private val serviceList: ArrayList<ServiceDetails>,
+    private val listener: (ServiceDetails) -> Unit
+) : RecyclerView.Adapter<ServicesAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val publisher: TextView = itemView.findViewById(R.id.publisher_name)
@@ -35,6 +37,8 @@ class ServicesAdapter(private val serviceList: ArrayList<ServiceDetails>) :
         viewHolder.description.text = service.description
         viewHolder.phoneNumber.text = service.publisher?.person?.phoneNumber ?: "Número no disponible"
         viewHolder.email.text = service.publisher?.person?.email ?: "Email no disponible"
+
+        viewHolder.itemView.setOnClickListener { listener(service) }
     }
 
     fun clear() {

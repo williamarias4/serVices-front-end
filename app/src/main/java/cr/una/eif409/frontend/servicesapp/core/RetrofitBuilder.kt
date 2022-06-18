@@ -12,7 +12,7 @@ object RetrofitBuilder {
      * If you are running the app on a physical device, you have to change the BASE_URL
      * to the IP address of your computer plus the port (8080), like the example below.
      */
-    private const val BASE_URL = "http://192.168.0.7:8080/"
+    private const val BASE_URL = "https://backend-services-app-v1.herokuapp.com/"
 
     fun getRetrofitInstance(): Retrofit {
         return Retrofit

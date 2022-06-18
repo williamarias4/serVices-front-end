@@ -25,6 +25,20 @@ class ServiceService {
             }
         }
 
+    suspend fun getServicesByUserName(userName: String): ServiceResponse<ArrayList<ServiceDetails>> =
+        withContext(Dispatchers.IO) {
+            try {
+                val response = serviceApiClient.getServicesByUserName(userName)
+
+                when (response.isSuccessful) {
+                    true -> ServiceResponse.Success(response.body()!!)
+                    false -> ServiceResponse.Error(Exception("No se pudo cargar los servicios"))
+                }
+            } catch (e: Exception) {
+                ServiceResponse.Error(e)
+            }
+        }
+
     suspend fun createService(serviceInput: ServiceInput): ServiceResponse<ServiceDetails> =
         withContext(Dispatchers.IO) {
             try {

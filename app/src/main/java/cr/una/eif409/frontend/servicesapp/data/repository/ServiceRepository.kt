@@ -10,4 +10,7 @@ class ServiceRepository {
 
     suspend fun createService(serviceInput: ServiceInput) =
         serviceService.createService(serviceInput)
+
+    suspend fun getServicesByUserName(userName: String) =
+        serviceService.getServicesByUserName(userName)
 }

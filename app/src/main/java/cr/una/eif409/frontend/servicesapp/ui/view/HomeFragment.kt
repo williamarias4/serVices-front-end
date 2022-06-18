@@ -38,7 +38,9 @@ class HomeFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         val recyclerView = binding.fragmentHomeRecyclerView
-        adapter = ServicesAdapter(viewModel.serviceList.value ?: arrayListOf())
+        adapter = ServicesAdapter(viewModel.serviceList.value ?: arrayListOf()) {
+            // do nothing in this case
+        }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
