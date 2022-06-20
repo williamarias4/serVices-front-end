@@ -66,4 +66,18 @@ class ServiceService {
                 ServiceResponse.Error(e)
             }
         }
+
+    suspend fun updateService(serviceDetails: ServiceDetails): ServiceResponse<ServiceDetails> =
+        withContext(Dispatchers.IO) {
+            try {
+                val response = serviceApiClient.updateService(serviceDetails)
+
+                when (response.isSuccessful) {
+                    true -> ServiceResponse.Success(response.body()!!)
+                    false -> ServiceResponse.Error(Exception("No se pudo actualizar el servicio"))
+                }
+            } catch (e: Exception) {
+                ServiceResponse.Error(e)
+            }
+        }
 }

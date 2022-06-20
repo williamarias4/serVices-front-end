@@ -43,6 +43,7 @@ class MyServicesFragment : Fragment() {
         val recyclerView = binding.fragmentMyServicesRecyclerView
         adapter = ServicesAdapter(viewModel.serviceList.value ?: arrayListOf()) {
             viewModel.selectedService.postValue(it)
+            viewModel.price.postValue(it.price?.toString())
             findNavController().navigate(R.id.action_myServicesFragment_to_editServiceFragment)
         }
         recyclerView.adapter = adapter

@@ -1,5 +1,6 @@
 package cr.una.eif409.frontend.servicesapp.data.repository
 
+import cr.una.eif409.frontend.servicesapp.data.model.ServiceDetails
 import cr.una.eif409.frontend.servicesapp.data.model.ServiceInput
 import cr.una.eif409.frontend.servicesapp.data.network.ServiceService
 
@@ -15,4 +16,7 @@ class ServiceRepository {
         serviceService.getServicesByUserName(userName)
 
     suspend fun deleteService(serviceId: Long) = serviceService.deleteService(serviceId)
+
+    suspend fun updateService(serviceDetails: ServiceDetails) =
+        serviceService.updateService(serviceDetails)
 }

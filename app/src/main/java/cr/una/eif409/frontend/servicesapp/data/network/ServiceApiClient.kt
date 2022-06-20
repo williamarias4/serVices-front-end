@@ -17,4 +17,7 @@ interface ServiceApiClient {
 
     @DELETE("api/v1/job/{id}")
     suspend fun deleteService(@Path("id") id: Long): Response<Void>
+
+    @PUT("api/v1/job/")
+    suspend fun updateService(@Body serviceDetails: ServiceDetails) : Response<ServiceDetails>
 }

@@ -74,6 +74,13 @@ class EditServiceFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 viewModel.deleted.value = null
             }
         }
+
+        viewModel.updated.observe(viewLifecycleOwner) {
+            if (it != null && it) {
+                requireActivity().onBackPressed()
+                viewModel.updated.value = null
+            }
+        }
     }
 
     private fun showMessage(message: String) {

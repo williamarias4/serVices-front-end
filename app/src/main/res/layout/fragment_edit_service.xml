@@ -87,7 +87,7 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:minHeight="48dp"
-                android:text="@{String.valueOf(MyServicesViewModel.selectedService.price)}"
+                android:text="@={MyServicesViewModel.price}"
                 android:textColorHint="#757575"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
